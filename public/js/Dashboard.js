@@ -70,27 +70,30 @@ console.log(maxDate);
 	var netDonations = dc.numberDisplay("#net-donations");
 	var stateDonations = dc.barChart("#state-donations");
 
-
+// A dropdown widget
   selectField = dc.selectMenu('#menuselect')
         .dimension(state)
         .group(stateGroup); 
 
+       // Widget for seeing the rows selected and rows available in the dataset
        dc.dataCount("#row-selection")
         .dimension(ndx)
         .group(all);
 
-
+	//A number chart
 	totalProjects
 		.formatNumber(d3.format("d"))
 		.valueAccessor(function(d){return d; })
 		.group(all);
 
+	//Another number chart
 	netDonations
 		.formatNumber(d3.format("d"))
 		.valueAccessor(function(d){return d; })
 		.group(netTotalDonations)
 		.formatNumber(d3.format(".3s"));
 
+	//A line chart
 	dateChart
 		//.width(600)
 		.height(220)
@@ -106,6 +109,7 @@ console.log(maxDate);
 		.xAxisLabel("Year")
 		.yAxis().ticks(6);
 
+	//A row chart
 	resourceTypeChart
         //.width(300)
         .height(220)
@@ -114,6 +118,7 @@ console.log(maxDate);
         .elasticX(true)
         .xAxis().ticks(5);
 
+	//Another row chart
 	povertyLevelChart
 		//.width(300)
 		.height(220)
@@ -121,6 +126,7 @@ console.log(maxDate);
         .group(projectsByPovertyLevel)
         .xAxis().ticks(4);
 
+	//Another row chart
 	gradeLevelChart
 		//.width(300)
 		.height(220)
@@ -129,6 +135,7 @@ console.log(maxDate);
         .xAxis().ticks(4);
 
   
+	//A pie chart
           fundingStatusChart
             .height(220)
             //.width(350)
@@ -138,7 +145,7 @@ console.log(maxDate);
             .dimension(fundingStatus)
             .group(projectsByFundingStatus);
 
-
+//A bar chart
     stateDonations
     	//.width(800)
         .height(220)
